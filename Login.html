@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/log">
+  <table width="200" border="1">
+    <tr>
+      <td>User Name </td>
+      <td><label>
+        <input type="text" name="textfield" required pattern="[A-Z a-z.]{3,25}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td><label>
+        <input type="password" name="textfield2" required />
+      </label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+        <div align="center">
+          <input type="submit" name="Submit" value="LOGIN" />
+          </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

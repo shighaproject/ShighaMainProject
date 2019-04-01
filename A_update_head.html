@@ -1,0 +1,76 @@
+{% extends 'index2.html' %}
+{% block body %}
+<form action="/updated" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table width="200" border="1">
+     <tr>
+      <td>Type</td>
+      <td><label>
+         <select name="select" required>
+          <option>--SELECT--</option>
+
+          <option value="TL" {% if val[1]=='TL' %}selected {% endif %}>TL</option>
+          <option value="MH" {% if val[1]=='MH' %}selected {% endif %}>MH</option>
+        </select>
+
+      </label></td>
+    </tr>
+    <tr>
+      <td>Name</td>
+      <td><input type="text" name="textfield" required pattern="[A-Z a-z.]{3,25}" value="{{val[2]}}" /></td>
+    </tr>
+    <tr>
+      <td>Place</td>
+      <td><label>
+        <input type="text" name="textfield2" required pattern="[A-Z a-z.]{3,25}" value="{{val[3]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>DOB</td>
+      <td><input type="text" name="textfield22" required value="{{val[4]}}"/></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><label>
+        <input name="radiobutton" type="radio" required value="Male" {% if val[5]=='Male' %}checked {% endif %}  />
+      Male
+      <input name="radiobutton" type="radio" required value="Female" {% if val[5]=='Female' %}checked {% endif %} />
+      Female</label></td>
+    </tr>
+    <tr>
+      <td>Mobile</td>
+      <td><label>
+        <input type="text" name="textfield3" value="{{val[6]}}" required pattern="[6789][0-9]{9}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Email_Id</td>
+      <td><label>
+        <input type="text" name="textfield4" required value="{{val[7]}}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Qualification</td>
+      <td><label>
+        <input type="text" name="textfield5" required value="{{val[8]}}"/>
+      </label></td>
+    </tr>
+    <tr>
+      <td>Experience</td>
+      <td><label>
+        <input type="text" name="textfield6" required value="{{val[9]}}" />
+      </label></td>
+    </tr>
+    <tr>
+      <td>Photo</td>
+      <td><label><a href="{{url_for('change_photo',id=val[0])}}">Change photo</a></label></td>
+    </tr>
+    <tr>
+      <td colspan="2"><label>
+      <div align="center">
+        <input type="submit" name="Submit" value="Update" />
+      </div>
+      </label></td>
+    </tr>
+  </table>
+</form>
+{% endblock %}

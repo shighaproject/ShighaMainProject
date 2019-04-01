@@ -1,0 +1,38 @@
+{% extends 'index2.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table width="558" border="1">
+    <tr>
+      <td width="31">Type</td>
+      <td width="37">Name</td>
+      <td width="37">Place</td>
+      <td width="33">DOB</td>
+      <td width="45">Gender</td>
+      <td width="43">Mobile</td>
+      <td width="54">Email_Id</td>
+      <td width="68">Qulification</td>
+      <td width="67">Experience</td>
+      <td width="24">Photo</td>
+      <td width="24">&nbsp;</td>
+      <td width="19">&nbsp;</td>
+    </tr>
+       {% for d in val %}
+    <tr>
+
+      <td>  {{d[1]}} </td>
+      <td>  {{d[2]}} </td>
+      <td>  {{d[3]}} </td>
+      <td>  {{d[4]}} </td>
+      <td>  {{d[5]}} </td>
+      <td>  {{d[6]}} </td>
+      <td>  {{d[7]}} </td>
+      <td>  {{d[8]}} </td>
+      <td>  {{d[9]}} </td>
+      <td><img src="../static/image/{{d[10]}}" alt="noimg" height="150" width="150"> </td>
+      <td><a href="{{url_for('update',id=d[0])}}">Edit</a></td>
+      <td><a href="{{url_for('delete',id=d[0])}}">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

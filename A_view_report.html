@@ -1,0 +1,39 @@
+{% extends 'index2.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="/report_view1">
+  <table width="283" border="1">
+
+    <tr>
+      <td width="40">Type</td>
+      <td width="57"><label>
+        <select name="select">
+          <option>--SELECT--</option>
+          <option value="TL">TL</option>
+          <option value="MH">MH</option>
+        </select>
+      </label></td>
+      <td><input type="submit" name="Submit" value="Search" />        <label></label>
+      <div align="center"></div></td>
+    </tr>
+  </table>
+  <table width="200" border="1">
+    <tr>
+      <td>Head_Name</td>
+      <td>Work</td>
+      <td>Date</td>
+      <td>Report</td>
+      <td>&nbsp;</td>
+
+    </tr>
+       {% for d in val %}
+     <tr>
+      <td> {{d[0]}} </td>
+      <td><a href="../static/file/{{d[1]}}"download>download</a></td>
+      <td> {{d[2]}} </td>
+      <td><a href="../static/file/{{d[3]}}"download>download</a></td>
+      <td><a href="{{url_for('delete_report',id=d[4])}}">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

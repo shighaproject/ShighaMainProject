@@ -1,0 +1,28 @@
+{% extends 'index2.html' %}
+{% block body %}
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1">
+    <tr>
+      <td>Type</td>
+      <td>Head Name </td>
+      <td>Title</td>
+      <td>Work</td>
+      <td>Time</td>
+      <td>Date</td>
+      <td>&nbsp;</td>
+    </tr>
+       {% for d in val %}
+    <tr>
+      <td> {{d[1]}}</td>
+      <td> {{d[2]}}</td>
+      <td> {{d[3]}}</td>
+       <td><a href="../static/file/{{d[4]}}"download>Download</a></td>
+      <td> {{d[5]}}</td>
+      <td> {{d[6]}}</td>
+      <td><a href="{{url_for('delete_work',id=d[0])}}">delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}
+
