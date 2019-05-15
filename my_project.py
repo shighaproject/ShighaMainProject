@@ -8,13 +8,13 @@ from werkzeug.utils import secure_filename
 app=Flask(__name__)
 app.static_folder="static"
 app.secret_key="new"
-path="F:\\project\\Third_Eye\\static\\image"
-path1="F:\\project\\Third_Eye\\static\\file"
+path="F:\\project\\new\\Third_Eye\\static\\image"
+path1="F:\\project\\new\\Third_Eye\\static\\file"
 con=MySQLdb.connect(host='localhost',user='root',passwd='',port=3306,db='project')
 cmd=con.cursor()
 @app.route('/')
 def home():
-    return render_template('Login.html')
+    return render_template('login.html')
 @app.route('/login')
 def login():
     return render_template('Login.html')
@@ -87,7 +87,7 @@ def register():
         print("COULDN'T SEND EMAIL", str(e))
     cmd.execute("insert into login_tb values(null,'"+email+"','"+mobile+"','"+type+"')")
     idd=con.insert_id()
-    cmd.execute("insert into a_add_tb values("+str(idd)+",'" + type + "','" +name + "','" + place + "','" + dob + "','" + gender + "','" + mobile + "','"+email+"','"+    qualification+"','"+experience+"','"+ img+"')")
+    cmd.execute("insert into a_add_tb values('"+str(idd)+"','" + type + "','" +name + "','" + place + "','" + dob + "','" + gender + "','" + mobile + "','"+email+"','"+    qualification+"','"+experience+"','"+ img+"')")
     con.commit()
     return '''<script>alert("successfully registerd");window.location="/admin_home"</script>'''
 @app.route('/delete',methods=['POST','GET'])
@@ -201,11 +201,11 @@ def delete_work():
 def report_view1():
     type=request.form['select']
     if type=='TL':
-        cmd.execute("SELECT`a_add_tb`.name,`a_assign_work_tb`.work ,`send_report_tb`.`date`,`report`,`aid` FROM `a_add_tb` JOIN `a_assign_work_tb` ON `a_add_tb`.hid=`a_assign_work_tb`.hid JOIN `send_report_tb` ON `send_report_tb`.hid=`a_add_tb`.`hid` AND `a_assign_work_tb`.`wid`=`send_report_tb`.`wid` where a_add_tb.type='TL'")
+        cmd.execute("SELECT`a_add_tb`.name,`h_assign_work_tb`.`work`,`send_report_tb`.`date`,`report`,`aid` FROM `a_add_tb` JOIN `h_assign_work_tb` ON `a_add_tb`.hid=`h_assign_work_tb`.hid JOIN `send_report_tb` ON `send_report_tb`.hid=`a_add_tb`.`hid` AND `h_assign_work_tb`.`wr_id`=`send_report_tb`.`wr_id` WHERE a_add_tb.type='TL'")
         s = cmd.fetchall()
         return render_template('A_view_report.html', val=s)
     else:
-        cmd.execute("SELECT`a_add_tb`.name,`a_assign_work_tb`.work ,`send_report_tb`.`date`,`report`,`aid` FROM `a_add_tb` JOIN `a_assign_work_tb` ON `a_add_tb`.hid=`a_assign_work_tb`.hid JOIN `send_report_tb` ON `send_report_tb`.hid=`a_add_tb`.`hid` AND `a_assign_work_tb`.`wid`=`send_report_tb`.`wid` where a_add_tb.type='MH'")
+        cmd.execute("SELECT`a_add_tb`.name,`mh_assign_work`.`work`,`send_report_tb`.`date`,`report`,`aid` FROM `a_add_tb` JOIN `mh_assign_work` ON `a_add_tb`.hid=`mh_assign_work`.hid JOIN `send_report_tb` ON `send_report_tb`.hid=`a_add_tb`.`hid` AND `mh_assign_work`.`work_id`=`send_report_tb`.`wr_id` WHERE a_add_tb.type='MH'")
         s = cmd.fetchall()
         return render_template('A_view_report.html', val=s)
 
