@@ -1,6 +1,8 @@
-package com.example.phone;
+package com.example.thirdeye;
 
-
+/**
+ 
+ */
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -181,7 +183,7 @@ public class FileUpload {
             inputStream = connection.getInputStream();
 
             result = this.convertStreamToString(inputStream);
-
+            result=connection.getResponseMessage();
             fileInputStream.close();
             inputStream.close();
             outputStream.flush();
@@ -189,11 +191,12 @@ public class FileUpload {
 
             return result;
         } catch (Exception e) {
-            //     logger.error(e);
-            Log.d("sssssssssssssssss", e.getMessage());
-            // throw (e);
+       //     logger.error(e);
+            return "result   "+e;
+        	//Log.d("sssssssssssssssss", e.getMessage());
+           // throw (e);
         }
-        return "";
+
 
     }
 

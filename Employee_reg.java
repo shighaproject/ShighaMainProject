@@ -45,7 +45,7 @@ public class Employee_reg extends Activity  implements OnItemSelectedListener{
     Button b1,b2;
     SharedPreferences sp;
 	String url="";
-	String ar[]={"Office employee","Marketing employee"};
+	String ar[]={"Office employee"};
 	ImageView img1;
 	String hid="";
 
@@ -138,8 +138,8 @@ public class Employee_reg extends Activity  implements OnItemSelectedListener{
 				if(res==1)
 				{
 					Toast.makeText(getApplicationContext(), " uploaded", Toast.LENGTH_LONG).show();
-//					Intent i=new Intent(getApplicationContext(),Head_add_employee.class);
-//					startActivity(i);
+					Intent i=new Intent(getApplicationContext(),Head_add_employee.class);
+					startActivity(i);
 				}
 				else
 				{Toast.makeText(getApplicationContext(), " error", Toast.LENGTH_LONG).show();

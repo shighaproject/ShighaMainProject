@@ -76,6 +76,7 @@ public class Head_view_profile extends Activity {
 		String experience=getIntent().getStringExtra("experience");
 		e7.setText(experience);
 		String img=getIntent().getStringExtra("photo");
+		Toast.makeText(getApplicationContext(),img,Toast.LENGTH_LONG).show();
 		java.net.URL thumb_u;
 		 try {
 				

@@ -1,4 +1,4 @@
-package com.example.phone;
+package com.example.thirdeye;
 
 import java.net.URISyntaxException;
 

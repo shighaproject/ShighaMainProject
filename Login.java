@@ -38,7 +38,7 @@ import android.widget.Toast;
         sp=PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
        
         
-        ip="192.168.43.18";
+        ip="192.168.43.190";
    
         
 

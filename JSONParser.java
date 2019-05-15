@@ -1,4 +1,4 @@
-package com.example.phone;
+package com.example.thirdeye;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.os.Build;
+import android.annotation.SuppressLint;
 import android.os.StrictMode;
 import android.util.Log;
 
@@ -28,7 +28,7 @@ import android.util.Log;
  * Created by John on 7/4/2018.
  */
 
-public class JSONParser {
+@SuppressLint("NewApi") public class JSONParser {
 
 
 
@@ -45,19 +45,9 @@ public class JSONParser {
     // by making HTTP POST or GET mehtod
     public Object makeHttpRequest(String url, String method,
                                   List<NameValuePair> params) throws JSONException {
-
-        try
-        {
-            if(Build.VERSION.SDK_INT>9)
-            {
-                StrictMode.ThreadPolicy policy=new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                StrictMode.setThreadPolicy(policy);
-            }
-        }
-        catch (Exception e)
-        {
-
-        }
+    	
+    	
+    	
         // Making HTTP request
         try {
 
@@ -112,15 +102,15 @@ public class JSONParser {
 
         // try parse the string to a JSON object
         try {
-            Log.d("JSON Parser data" ,"ererer");
-            jObj = new JSONObject(json);
+        	 Log.d("JSON Parser parsing data " ,"ererer");
+             jObj = new JSONObject(json);
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
             JSONArray jsar=new JSONArray(json);
             return jsar;
         }
         Log.e("JSON Parser", "xxxxxxxxxxxxxxx " );
-
+        
         // return JSON String
         return jObj;
 

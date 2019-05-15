@@ -1,4 +1,4 @@
-package com.example.my_app;
+package com.example.thirdeye;
 
 
 import java.util.ArrayList;
@@ -34,12 +34,13 @@ public class Custom3 extends BaseAdapter{
 
     SharedPreferences sp;
     String ip="";
-    public Custom3(Context applicationContext, ArrayList<String> a, ArrayList<String> b, ArrayList<String> c) {
+    public Custom3(Context applicationContext, ArrayList<String> a, ArrayList<String> b,ArrayList<String>c) {
         // TODO Auto-generated constructor stub
         this.context=applicationContext;
         this.a=a;
         this.b=b;
         this.c=c;
+
 
     }
 
@@ -48,7 +49,7 @@ public class Custom3 extends BaseAdapter{
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return c.size();
+        return b.size();
     }
 
     @Override
@@ -72,7 +73,7 @@ public class Custom3 extends BaseAdapter{
         if(convertView==null)
         {
             gridView=new View(context);
-            gridView=inflator.inflate(R.layout.activity_custom1,null);
+            gridView=inflator.inflate(R.layout.activity_custom3,null);
 
         }
         else
@@ -88,7 +89,7 @@ public class Custom3 extends BaseAdapter{
         tv1.setText(a.get(position));
         tv2.setText(b.get(position));
         tv3.setText(c.get(position));
-        tv4.setText("SELECT_OPTION");
+        tv4.setText("SELECT OPTION");
 
         tv1.setTextColor(Color.BLACK);
         tv2.setTextColor(Color.BLACK);
