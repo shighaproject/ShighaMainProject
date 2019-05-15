@@ -10,6 +10,12 @@
         android:layout_height="wrap_content"
         android:gravity="center" >
 
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="        HOME-PAGE            " />
+
     </TableRow>
 
     <TableRow
@@ -17,12 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center" >
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  VIEW WORK DETAILS  " />
 
     </TableRow>
 
@@ -36,7 +36,7 @@
             android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="            LOG OUT            " />
+            android:text="  ADD NEW EMPLOYEE  " />
 
     </TableRow>
 
